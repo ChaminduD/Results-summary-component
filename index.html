@@ -2,46 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Results summary component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main>
+    <section class="section1">
+      <h3>Your Result</h3>
 
-  Your Result
-  76
-  of 100
+      <span>
+        <strong id="final-score">76</strong>
+        <small>of 100</small>
+      </span>
+      
+      <strong id="result">Great</strong>
+      <p>You scored higher than 65% of the people who have taken these tests.</p>
+    </section>
+    
+    <section class="section2">
+      <h3>Summary</h3>
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
+      <div id="reaction">
+        <img src="assets/images/icon-reaction.svg" alt="reaction icon" class="icon">
+        <span class="category">Reaction</span>
+        <span class="container-score"><span class="score" id="reaction-score">80</span> / 100</span>
+      </div>
+      
+      <div id="memory">
+        <img src="assets/images/icon-memory.svg" alt="memory icon" class="icon">
+        <span class="category">Memory</span>
+        <span class="container-score"><span class="score" id="memory-score">92</span> / 100</span>
+      </div>
+      
+      <div id="verbal">
+        <img src="assets/images/icon-verbal.svg" alt="verbal icon" class="icon">
+        <span class="category">Verbal</span>
+        <span class="container-score"><span class="score" id="verbal-score">61</span> / 100</span>
+      </div>
+      
+      <div id="visual">
+        <img src="assets/images/icon-visual.svg" alt="visual icon" class="icon">
+        <span class="category">Visual</span>
+        <span class="container-score"><span class="score" id="visual-score">72</span> / 100</span>
+      </div>
+      
+      <button onclick="getFinalScore()">Continue</button>
+    </section>
+    
+  </main>
   
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="https://www.linkedin.com/in/chamindudahanayaka/">Chamindu Dahanayaka</a>.
+  </footer>
+
+  <script>
+    async function getFinalScore(){
+      let finalScore = document.getElementById("final-score");
+      let reactionScore = document.getElementById("reaction-score");
+      let memoryScore = document.getElementById("memory-score");
+      let verbalScore = document.getElementById("verbal-score");
+      let visualScore = document.getElementById("visual-score");
+
+      try{
+        const response = await fetch('data.json');
+
+        if(!response.ok){
+          throw new Error("Could not fetch resource");
+        }
+
+        const data = await response.json();
+        
+        reactionScore.innerHTML = data[0].score;
+        memoryScore.innerHTML = data[1].score;
+        verbalScore.innerHTML = data[2].score;
+        visualScore.innerHTML = data[3].score;
+        finalScore.innerHTML = Math.round((data[0].score + data[1].score + data[2].score + data[3].score)/4);
+      }
+      catch(error){
+        console.error(error);
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+body{
+    min-height: 100vh;
+    position: relative;
+}
+.section1{
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    width: 100%;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    border-radius: 0 0 30px 30px;
+}
+.section1 h3{
+    color: hsl(241, 100%, 89%);
+    margin: 24px 0;
+    font-size: 18px;
+}
+.section1 span{
+    display: grid;
+    place-items: center;
+    place-content: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+}
+.section1 span strong{
+    color: hsl(0, 0%, 100%);
+    font-size: 54px;
+}
+.section1 span small{
+    color: hsl(241, 100%, 89%);
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+}
+.section1 #result{
+    color: hsl(0, 0%, 100%);
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+.section1 p{
+    font-size: 16px;
+    color: hsl(241, 100%, 89%);
+    margin: 8px 40px 40px;
+}
+
+.section2{
+    padding: 24px 30px;
+    background-color: hsl(0, 0%, 100%);
+}
+.section2 h3{
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+.section2 div{
+    padding: 18px 16px;
+    display: flex;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.section2 div .icon{
+    padding-right: 12px;
+}
+.section2 #reaction{
+    background-color: hsla(0, 100%, 67%, 0.06);
+    color: hsl(0, 100%, 67%);
+}
+.section2 #memory{
+    background-color: hsla(39, 100%, 56%, 0.06);
+    color: hsl(39, 100%, 56%);
+}
+.section2 #verbal{
+    background-color: hsla(166, 100%, 37%, 0.06);
+    color: hsl(166, 100%, 37%);
+}
+.section2 #visual{
+    background-color: hsla(234, 85%, 45%, 0.06);
+    color: hsl(234, 85%, 45%);
+}
+.section2 .category{
+    font-weight: 700;
+}
+.section2 .container-score{
+    color: hsla(224, 30%, 27%, 0.5);
+    font-weight: 800;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.section2 .container-score .score{
+    color: hsl(224, 30%, 27%);
+    padding-right: 8px;
+}
+.section2 button{
+    width: 100%;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(224, 30%, 27%);
+    border: none;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 16px 0;
+    border-radius: 28px;
+    cursor: pointer;
+}
+.section2 button:hover{
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+}
+.attribution{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a{
+    color: hsl(252, 100%, 67%);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+@media only screen and (min-width:600px){
+    body{
+        display: grid;
+        place-items: center;
+        place-content: center;
+        background-color: hsl(0, 0%, 100%);
+    }
+    main{
+        display: grid;
+        grid-template-areas: 'left right';
+        border-radius: 30px;
+        background-color: hsl(0, 0%, 100%);
+        box-shadow: 16px 40px 40px hsl(222, 100%, 96%);
+    }
+    .section1{
+        grid-area: left;
+        max-width: 368px;
+        border-radius: 30px;
+    }
+    .section1 h3{
+        margin: 38px 0 36px;
+        font-size: 24px;
+    }
+    .section1 span{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 0px;
+    }
+    .section1 span strong{
+        font-size: 70px;
+    }
+    .section1 span small{
+        font-size: 18px;
+        margin-top: -6px;
+    }
+    .section1 #result{
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .section1 p{
+        font-size: 18px;
+        margin: 8px 54px 50px;
+    }
+
+    .section2{
+        grid-area: right;
+        min-width: 368px;
+        border-radius: 0 30px 30px 0;
+        padding: 40px;
+    }
+    .section2 h3{
+        font-size: 24px;
+    }
+    .section2 div{
+        margin-bottom: 12px;
+    }
+    .section2 .category{
+        font-size: 18px;
+    }
+    .section2 .container-score{
+        font-size: 18px;
+    }
+    .section2 button{
+        margin-top: 30px;
+    }
+}
